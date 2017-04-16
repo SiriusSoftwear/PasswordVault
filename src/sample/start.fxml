@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane id="background" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.MainController">
+<BorderPane id="background" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
   <center>
     <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color:white;">
       <children>
@@ -52,7 +54,7 @@
   <top>
     <Pane id="" prefHeight="45.0" prefWidth="1200.0" style="-fx-background-color:#8eacbb;">
       <children>
-        <Label fx:id="add" alignment="CENTER" layoutX="0.0" layoutY="0.0" onMouseClicked="#AddPassword" onMouseEntered="#AddFocused" onMouseExited="#AddNotFocused" prefHeight="44.9999942779541" prefWidth="96.0" style="-fx-cursor:hand;&#10;-fx-font-size:25px;" text="Add new" />
+        <Label fx:id="add" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="0.0" onMouseClicked="#AddPassword" onMouseEntered="#AddFocused" onMouseExited="#AddNotFocused" prefHeight="44.9999942779541" prefWidth="96.0" style="-fx-cursor:hand;&#10;-fx-font-size:25px;" text="Add new" />
         <Label id="Remove" fx:id="remove" alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="0.0" onMouseClicked="#RemovePassword" onMouseEntered="#RemoveFocused" onMouseExited="#RemoveNotFocused" prefHeight="44.9999942779541" prefWidth="96.00009999999747" style="-fx-cursor:hand;&#10;-fx-font-size:25px;" text="Remove" />
       </children>
       <stylesheets>
