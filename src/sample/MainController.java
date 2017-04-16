@@ -13,6 +13,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.h2.store.PageStreamData;
@@ -139,6 +141,7 @@ public class MainController implements Initializable {
             primaryStage.setResizable(false);
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
+            primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
         }
     }
     @FXML
@@ -152,6 +155,7 @@ public class MainController implements Initializable {
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
     }
     @FXML
     private void GenerateNewPassword(){

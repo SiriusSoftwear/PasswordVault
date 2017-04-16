@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.siriussoftwear.DatabaseConnection;
 import org.siriussoftwear.Instance;
@@ -31,12 +32,14 @@ public class Main extends Application {
         File f= new File("././config.json");
         if(f.exists()){
             Parent root = FXMLLoader.load(getClass().getResource("auth_pw.fxml"));
+            primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             primaryStage.setResizable(false);
             primaryStage.setTitle("Hello World");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
         }else{
             Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+            primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             primaryStage.setResizable(false);
             primaryStage.setTitle("Hello World");
             primaryStage.setScene(new Scene(root));

@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.siriussoftwear.*;
@@ -42,6 +43,7 @@ public class AuthController implements Initializable{
     private void HandlePasswordFieldKeyPressed(KeyEvent event) throws IllegalBlockSizeException, NoSuchAlgorithmException, IOException, SQLException, BadPaddingException, NoSuchPaddingException, InvalidKeyException, ClassNotFoundException {
         if(event.getCode().getName()=="Enter"){
             Stage primaryStage=Main.getPrimaryStage();
+            primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             String masterpw=passwordField.getText();
             Auth.userpw=masterpw;
             InstanceLoader instanceLoader= new InstanceLoader();
@@ -59,6 +61,7 @@ public class AuthController implements Initializable{
     private void HandleTextAreaKeyPressed(KeyEvent event) throws IllegalBlockSizeException, NoSuchAlgorithmException, IOException, SQLException, BadPaddingException, NoSuchPaddingException, InvalidKeyException, ClassNotFoundException {
         if(event.getCode().getName()=="Enter"){
             Stage primaryStage=Main.getPrimaryStage();
+            primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             GoogleAuthenticator gAuth= new GoogleAuthenticator();
             Instance instance=Main.instance;
             int totp=gAuth.getTotpPassword(instance.getTotp());

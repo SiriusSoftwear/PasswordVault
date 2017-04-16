@@ -58,6 +58,7 @@ public class RegisterController implements Initializable {
     private void HandleTextAreaKeyPressed(KeyEvent event) throws IOException, BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, SQLException, NoSuchPaddingException, InvalidKeyException, ClassNotFoundException, InterruptedException {
         if (event.getCode().getName() == "Enter") {
             Stage primaryStage = Main.getPrimaryStage();
+            primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             String masterpw = textArea.getText().toString();
             Auth.userpw = masterpw;
             progressBar.setProgress(-1);
@@ -121,6 +122,7 @@ public class RegisterController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("auth_pw.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
+        stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
     }
     @FXML
     private void CheckTOTP(KeyEvent event) throws IOException {
@@ -131,6 +133,7 @@ public class RegisterController implements Initializable {
             int totp1=gAuth.getTotpPassword(instance.getTotp());
             if(code==totp1){
                 asdf.setText("Correct!");
+                asdf.setContentDisplay(ContentDisplay.CENTER);
                 totp.setVisible(false);
                 progressIndicator.setVisible(false);
                 totp.setText("");
