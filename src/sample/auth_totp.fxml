@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.AuthController">
+  <center>
+    <Pane prefHeight="200.0" prefWidth="200.0">
+      <children>
+        <Label alignment="CENTER" layoutX="1.0" layoutY="86.0" minHeight="51.875" prefHeight="51.875" prefWidth="600.000199999995" text="Please enter password from">
+          <font>
+            <Font name="Yantramanav Thin" size="40.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label alignment="CENTER" font="$x1" layoutX="1.0" layoutY="154.0" minHeight="51.875" prefHeight="51.875099999997474" prefWidth="600.0000999999975" text="your google authenticator app." />
+        <TextArea fx:id="textArea" layoutX="34.0" layoutY="241.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#HandleTextAreaKeyPressed" onKeyTyped="#HandleTextAreaKeyPressed" prefHeight="43.45001220703125" prefWidth="535.0001220703125" promptText="code" style="" text="" wrapText="true">
+          <stylesheets>
+            <URL value="@style.css" />
+          </stylesheets>
+        </TextArea>
+        <ProgressIndicator fx:id="progressIndicator" layoutX="241.0" layoutY="375.0" prefHeight="104.0" prefWidth="121.0" progress="0.0">
+          <stylesheets>
+            <URL value="@style.css" />
+          </stylesheets>
+        </ProgressIndicator>
+      </children>
+    </Pane>
+  </center>
+  <stylesheets>
+    <URL value="@style.css" />
+  </stylesheets>
+  <top>
+    <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color:#607d8b;" />
+  </top>
+</BorderPane>

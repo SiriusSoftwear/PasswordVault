@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.AuthController">
+  <center>
+    <Pane prefHeight="200.0" prefWidth="200.0">
+      <children>
+        <Label alignment="CENTER" layoutX="0.0" layoutY="88.0" minHeight="51.875" prefHeight="51.875" prefWidth="600.000199999995" text="Welcome. Please enter">
+          <font>
+            <Font name="Yantramanav Thin" size="40.0" fx:id="x1" />
+          </font>
+        </Label>
+        <Label alignment="CENTER" font="$x1" layoutX="0.0" layoutY="156.0" minHeight="51.875" prefHeight="51.875" prefWidth="600.0000999999975" text="your master password." />
+        <PasswordField id="password_field" fx:id="passwordField" layoutX="50.0" layoutY="256.0" onKeyPressed="#HandlePasswordFieldKeyPressed" prefHeight="41.0" prefWidth="500.0" promptText="master" text="">
+          <stylesheets>
+            <URL value="@style.css" />
+          </stylesheets>
+        </PasswordField>
+        <ImageView fitHeight="256.0" fitWidth="256.0" layoutX="782.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@icon.png" />
+          </image>
+        </ImageView>
+      </children>
+    </Pane>
+  </center>
+  <stylesheets>
+    <URL value="@style.css" />
+  </stylesheets>
+  <top>
+    <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color:#607d8b;" />
+  </top>
+</BorderPane>

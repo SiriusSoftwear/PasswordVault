@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="background" prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.MainController">
+  <center>
+    <Pane prefHeight="200.0" prefWidth="200.0">
+      <children>
+        <Pane layoutX="153.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="696.0" style="-fx-background-color:#607D8B;">
+          <children>
+            <TextArea fx:id="name" editable="false" layoutX="54.0" layoutY="57.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="514.9998779296875" promptText="name" styleClass="textArea" wrapText="true">
+              <stylesheets>
+                <URL value="@style.css" />
+              </stylesheets>
+            </TextArea>
+            <TextArea fx:id="user" editable="false" layoutX="54.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="515.0" promptText="user" styleClass="textArea" wrapText="true">
+              <stylesheets>
+                <URL value="@style.css" />
+              </stylesheets>
+            </TextArea>
+            <TextArea fx:id="pw" disable="false" editable="false" focusTraversable="true" layoutX="54.0" layoutY="257.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="515.0" promptText="password" styleClass="textArea" text="" wrapText="true">
+              <stylesheets>
+                <URL value="@style.css" />
+              </stylesheets>
+            </TextArea>
+            <TextArea fx:id="notes" editable="false" layoutX="54.0" layoutY="365.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="515.0" promptText="notes" style="-fx-font-size:20px;" styleClass="textArea" wrapText="true">
+              <stylesheets>
+                <URL value="@style.css" />
+              </stylesheets>
+            </TextArea>
+            <Pane fx:id="add_button" layoutX="369.0" layoutY="513.0" onMouseClicked="#InsertPassword" prefHeight="59.44999694824219" prefWidth="200.0" style="-fx-background-color:#cb2d3e;" visible="false" />
+            <Button fx:id="button" layoutX="605.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#GenerateNewPassword" prefHeight="57.9609375" prefWidth="57.0" text="" />
+          </children>
+        </Pane>
+      </children>
+    </Pane>
+  </center>
+  <left>
+    <ListView fx:id="listView" onMouseClicked="#MouseClicked" prefHeight="200.0" prefWidth="200.0" style="-fx-font-family:'Boogaloo';&#10;-fx-font-size:20px;">
+      <stylesheets>
+        <URL value="@style.css" />
+      </stylesheets>
+    </ListView>
+  </left>
+  <stylesheets>
+    <URL value="@style.css" />
+  </stylesheets>
+  <top>
+    <Pane id="" prefHeight="45.0" prefWidth="1200.0" style="-fx-background-color:#F57C00;">
+      <children>
+        <Label fx:id="add" alignment="CENTER" layoutX="0.0" layoutY="0.0" onMouseClicked="#AddPassword" onMouseEntered="#AddFocused" onMouseExited="#AddNotFocused" prefHeight="44.9999942779541" prefWidth="96.0" style="-fx-cursor:hand;&#10;-fx-font-size:25px;" text="Add new" />
+        <Label id="Remove" fx:id="remove" alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="0.0" onMouseClicked="#RemovePassword" onMouseEntered="#RemoveFocused" onMouseExited="#RemoveNotFocused" prefHeight="44.9999942779541" prefWidth="96.00009999999747" style="-fx-cursor:hand;&#10;-fx-font-size:25px;" text="Remove" />
+      </children>
+      <stylesheets>
+        <URL value="@style.css" />
+      </stylesheets>
+    </Pane>
+  </top>
+</BorderPane>
