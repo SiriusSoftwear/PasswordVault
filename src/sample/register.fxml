@@ -42,8 +42,8 @@
             <URL value="@style.css" />
           </stylesheets>
         </ProgressBar>
-        <Label fx:id="asdf" alignment="CENTER" font="$x1" layoutX="644.0" layoutY="272.0" text="Try if you entered the right code :" visible="false" />
-        <TextArea fx:id="totp" layoutX="800.0" layoutY="358.0" onKeyPressed="#CheckTOTP" onKeyTyped="#CheckTOTP" prefHeight="45.0" prefWidth="200.0" style="-fx-font-family:'Boogaloo';&#10;-fx-font-size:25px;" visible="false" wrapText="true" />
+        <Label fx:id="asdf" alignment="CENTER" contentDisplay="CENTER" font="$x1" layoutX="644.0" layoutY="272.0" text="Try if you entered the right code :" visible="false" />
+        <TextArea fx:id="totp" layoutX="800.0" layoutY="358.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#CheckTOTP" onKeyTyped="#CheckTOTP" prefHeight="45.0" prefWidth="200.0" style="-fx-font-family:'Boogaloo';&#10;-fx-font-size:25px;" visible="false" wrapText="true" />
         <ProgressIndicator fx:id="progressIndicator" layoutX="800.0" layoutY="436.0" onKeyPressed="#CheckTOTP" onKeyTyped="#CheckTOTP" prefHeight="97.0" prefWidth="200.0" progress="0.0" visible="false">
           <stylesheets>
             <URL value="@style.css" />
