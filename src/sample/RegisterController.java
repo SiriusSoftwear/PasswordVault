@@ -136,7 +136,7 @@ public class RegisterController implements Initializable {
                 totp.setText("");
 
             }else{
-                System.out.println("wrong");
+                System.out.println("False Code!");
                 totp.setText("");
 
             }
