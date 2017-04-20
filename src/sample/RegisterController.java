@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import org.siriussoftwear.Auth;
 import org.siriussoftwear.Instance;
 import org.siriussoftwear.InstanceLoader;
-import org.siriussoftwear.QR;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -73,8 +72,11 @@ public class RegisterController implements Initializable {
                             textArea.setEditable(false);
                         }
                     });
+                    System.out.println("check1");
                     InstanceLoader instanceLoader = new InstanceLoader();
+                    System.out.println("check2");
                     Instance instance = instanceLoader.LoadInstance();
+                    System.out.println("check3");
                     Main.instance = instance;
                     Platform.runLater(new Runnable() {
                         @Override
