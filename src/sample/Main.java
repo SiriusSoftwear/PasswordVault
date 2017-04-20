@@ -34,14 +34,14 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("auth_pw.fxml"));
             primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             primaryStage.setResizable(false);
-            primaryStage.setTitle("Hello World");
+            primaryStage.setTitle("PasswordVault");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
         }else{
             Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
             primaryStage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             primaryStage.setResizable(false);
-            primaryStage.setTitle("Hello World");
+            primaryStage.setTitle("PasswordVault");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
         }
