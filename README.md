@@ -8,5 +8,5 @@ Download:     https://1drv.ms/u/s!AnjVHnMdIsz_d46uDqelPWyXJJM
 
 #Important notes:
 1. This is the first version, so please give feedback!
-2. Make sure to save your master password, as it is not recoverable.If you can't remember it, all saved passwords will be lost!
+2. Make sure to save your master password, as it is not recoverable. If you can't remember it, all saved passwords will be lost!
 3. Don't delete the config.json or the databases! Either your passwords will be lost or you can't access them.
