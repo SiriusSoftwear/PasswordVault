@@ -1,5 +1,5 @@
 # PasswordVault
-This is a offline password manager which integrates Google Authenticator to add additional layer of security.
+This is a offline password manager which integrates Google Authenticator to add a additional layer of security.
 Passwords will be encrypted with the AES-256 algorithm and saved in a database.
 You can either open a pull request and build the jar by yourself while viewing the source code.
 There is also a download link for the compiled jar to start asap.
