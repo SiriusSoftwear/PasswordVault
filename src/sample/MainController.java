@@ -4,6 +4,7 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -45,6 +46,10 @@ public class MainController implements Initializable {
     List<String> mylist=new ArrayList<>();
     ListProperty<String> listProperty = new SimpleListProperty<>();
     private static List<PasswordObject>list= new ArrayList<PasswordObject>();
+    @FXML
+    private Button yes;
+    @FXML
+    private Button no;
     @FXML
     private javafx.scene.control.Label remove;
     @FXML
@@ -146,16 +151,50 @@ public class MainController implements Initializable {
     }
     @FXML
     private void RemovePassword() throws SQLException, ClassNotFoundException, IOException {
-        int index=listView.getSelectionModel().getSelectedIndex();
-        PasswordObject object=list.get(index);
-        DatabaseConnection connection = new DatabaseConnection();
-        connection.DeletePassword(object);
-        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        final int index=listView.getSelectionModel().getSelectedIndex();
+        Parent root = FXMLLoader.load(getClass().getResource("conf.fxml"));
         Stage primaryStage=Main.getPrimaryStage();
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
+        yes.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    PasswordObject object=list.get(index);
+                    DatabaseConnection connection = new DatabaseConnection();
+                    connection.DeletePassword(object);
+                    Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
+                    Stage primaryStage=Main.getPrimaryStage();
+                    primaryStage.setResizable(false);
+                    primaryStage.setScene(new Scene(root));
+                    primaryStage.show();
+                    primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        no.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
+                    Stage primaryStage=Main.getPrimaryStage();
+                    primaryStage.setResizable(false);
+                    primaryStage.setScene(new Scene(root));
+                    primaryStage.show();
+                    primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
     @FXML
     private void GenerateNewPassword(){
