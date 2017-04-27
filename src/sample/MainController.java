@@ -14,19 +14,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import org.h2.store.PageStreamData;
 import org.siriussoftwear.DatabaseConnection;
 import org.siriussoftwear.PasswordObject;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -36,7 +32,6 @@ import java.security.SecureRandom;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 /**
@@ -45,7 +40,8 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
     List<String> mylist=new ArrayList<>();
     ListProperty<String> listProperty = new SimpleListProperty<>();
-    private static List<PasswordObject>list= new ArrayList<PasswordObject>();
+    public static List<PasswordObject>list= new ArrayList<PasswordObject>();
+    public static int selectedIndex=0;
     @FXML
     private Button yes;
     @FXML
@@ -77,6 +73,9 @@ public class MainController implements Initializable {
             for(int i = 0;i<list.size();i++){
                 mylist.add(list.get(i).GetName(Main.instance));
             }
+            listProperty.set(FXCollections.observableArrayList(mylist));
+            listView.itemsProperty().bind(listProperty);
+            button.setVisible(false);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -96,9 +95,6 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        listProperty.set(FXCollections.observableArrayList(mylist));
-        listView.itemsProperty().bind(listProperty);
-        button.setVisible(false);
 
     }
     @FXML
@@ -151,50 +147,25 @@ public class MainController implements Initializable {
     }
     @FXML
     private void RemovePassword() throws SQLException, ClassNotFoundException, IOException {
-        final int index=listView.getSelectionModel().getSelectedIndex();
-        Parent root = FXMLLoader.load(getClass().getResource("conf.fxml"));
+        selectedIndex=listView.getSelectionModel().getSelectedIndex();
+        Parent root = FXMLLoader.load(getClass().getResource("dialog.fxml"));
         Stage primaryStage=Main.getPrimaryStage();
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
-        yes.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    PasswordObject object=list.get(index);
-                    DatabaseConnection connection = new DatabaseConnection();
-                    connection.DeletePassword(object);
-                    Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
-                    Stage primaryStage=Main.getPrimaryStage();
-                    primaryStage.setResizable(false);
-                    primaryStage.setScene(new Scene(root));
-                    primaryStage.show();
-                    primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        no.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
-                    Stage primaryStage=Main.getPrimaryStage();
-                    primaryStage.setResizable(false);
-                    primaryStage.setScene(new Scene(root));
-                    primaryStage.show();
-                    primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        /*
+        final int index=listView.getSelectionModel().getSelectedIndex();
+        PasswordObject object=list.get(index);
+        DatabaseConnection connection = new DatabaseConnection();
+        connection.DeletePassword(object);
+        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        Stage primaryStage=Main.getPrimaryStage();
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+        primaryStage.getIcons().add(new javafx.scene.image.Image(getClass().getResource("icon.png").toExternalForm()));
+        */
     }
     @FXML
     private void GenerateNewPassword(){

@@ -87,6 +87,6 @@ public class AuthController implements Initializable{
                 progressIndicator.setProgress(s);
 
             }
-        }, 50,50);
+        }, 1000,50);
     }
 }
